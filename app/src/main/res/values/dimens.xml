@@ -1,0 +1,52 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">260dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="profile_width">75dp</dimen>
+    <dimen name="profile_height">75dp</dimen>
+
+    <dimen name="profile_width_main">100dp</dimen>
+
+    <dimen name="headding_txt_size">14dp</dimen>
+    <dimen name="headding_txt_data_size">10dp</dimen>
+    <dimen name="row_height_main">350dp</dimen>
+    <dimen name="row_shadow_height_main">160dp</dimen>
+    <dimen name="row_shadow_height_main_grid">200dp</dimen>
+
+    <dimen name="margin_betweenelements">10dp</dimen>
+    <dimen name="height_rowprofile">60dp</dimen>
+    <dimen name="height_profile_icon">25dp</dimen>
+    <dimen name="size_gallery_icon">30dp</dimen>
+
+    <dimen name="size_title">20dp</dimen>
+    <dimen name="size_subtitle">18dp</dimen>
+    <dimen name="size_data">12dp</dimen>
+
+
+    <dimen name="dots_height">30dp</dimen>
+    <dimen name="dots_margin_bottom">20dp</dimen>
+    <dimen name="img_width_height">150dp</dimen>
+    <dimen name="slide_title">30dp</dimen>
+    <dimen name="slide_desc">16dp</dimen>
+    <dimen name="desc_padding">40dp</dimen>
+
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">NOURISHARE</string>
+    <string name="slide_1_desc">About our app</string>
+
+    <string name="slide_2_title">Register User</string>
+    <string name="slide_2_desc">Set your profile</string>
+
+    <string name="slide_3_title">Upload New Entries</string>
+    <string name="slide_3_desc">Upload new Entry</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+</resources>

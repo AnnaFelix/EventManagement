@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin">
+
+        <RelativeLayout
+            android:id="@+id/layout_call"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/textview_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/phone"
+                android:drawablePadding="8dp"
+                android:padding="4dp"
+                android:layout_centerVertical="true"
+                android:text="Contact : "
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_toRightOf="@+id/textview_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:padding="4dp"
+                android:layout_centerVertical="true"
+                android:text="62123456"
+                android:textSize="14sp" />
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"></View>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/textview_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/gps"
+                android:drawablePadding="8dp"
+                android:padding="4dp"
+                android:text="Address : "
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_toRightOf="@+id/textview_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:padding="4dp"
+                android:layout_centerVertical="true"
+                android:text="University of Luxembourg, 2, avenue de l'Université, 4365 Esch-sur-Alzette, Luxembourg"
+                android:textSize="14sp" />
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"></View>
+
+        <RelativeLayout
+            android:id="@+id/layout_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/textview_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/email"
+                android:drawablePadding="8dp"
+                android:padding="4dp"
+                android:text="Email : "
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_toRightOf="@+id/textview_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:padding="4dp"
+                android:layout_centerVertical="true"
+                android:text="foodforallprojectajrs@gmail.com"
+                android:textSize="14sp" />
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"></View>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/textview_facebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/facebook"
+                android:drawablePadding="8dp"
+                android:padding="4dp"
+                android:text="Facebook : "
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_toRightOf="@+id/textview_facebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:padding="4dp"
+                android:layout_centerVertical="true"
+                android:text="nourishare"
+                android:textSize="14sp" />
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"></View>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
