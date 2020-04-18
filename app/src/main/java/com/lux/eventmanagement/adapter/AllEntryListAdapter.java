@@ -54,7 +54,7 @@ public class AllEntryListAdapter extends RecyclerView.Adapter<AllEntryListAdapte
         final Uri imageurl  =  (dataSet.get(i).getImage()!= null)? Uri.parse(dataSet.get(i).getImage()): null;
 
         viewHolder.name.setText(""+username);
-        viewHolder.followers.setText("243799");
+        viewHolder.followers.setText(""+dataSet.get(i).getUser().address);
         viewHolder.description.setText(description);
         viewHolder.title.setText(""+title);
 
