@@ -69,7 +69,7 @@ public class ContactUsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                        "mailto","foodforallprojectajrs@gmail.com", null));
+                        "mailto","forallprojectajrs@gmail.com", null));
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Mail From App");
                 startActivity(Intent.createChooser(emailIntent, "Send email..."));
             }

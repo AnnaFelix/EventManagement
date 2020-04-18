@@ -6,45 +6,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
-        tools:context=".AddFood"
         tools:ignore="RedundantNamespace">
         <LinearLayout
             android:orientation="vertical" android:layout_width="match_parent"
             android:layout_height="match_parent"
            >
-        <LinearLayout
-            android:id="@+id/layout_button"
-            android:orientation="horizontal"
-            android:layout_alignParentTop="true"
-            android:weightSum="2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@color/light_gray"
+        tools:ignore="ContentDescription" />
 
-            <Button
-                android:id="@+id/btnChoose"
-                android:text="@string/choose_image"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                tools:ignore="ButtonStyle" />
+    <ImageView
+        android:id="@+id/imgViewSelect"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/baseline_publish_black"
+        tools:ignore="ContentDescription" />
 
-            <Button
-                android:id="@+id/btnUpload"
-                android:text="@string/upload_image"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                tools:ignore="ButtonStyle" />
-        </LinearLayout>
-
-
-        <ImageView
-            android:id="@+id/imgView"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_below="@+id/layout_button"
-            android:src="@drawable/checkmark"
-            tools:ignore="ContentDescription" />
+</RelativeLayout>
 
 
 
@@ -89,13 +75,13 @@
                     android:layout_marginTop="10dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_weight=".3"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:text="About : ">
-                    </TextView>
+                        android:layout_weight=".3"
+                        android:text="About : "
+                        android:textSize="18dp"></TextView>
                     <EditText
                         android:id="@+id/description"
                         android:layout_width="0dp"
@@ -112,6 +98,18 @@
 
                 </LinearLayout>
 
+                <Button
+                    android:id="@+id/locationbtn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:background="@color/colorPrimary"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_margin="50dp"
+                    android:text="Share Location"
+                    android:layout_alignParentBottom="true"
+                    android:textColor="@android:color/white" />
 
 
             </LinearLayout>

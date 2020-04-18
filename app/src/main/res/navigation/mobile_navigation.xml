@@ -19,9 +19,9 @@
 
     <fragment
         android:id="@+id/nav_addnewentry"
-        android:name="com.lux.eventmanagement.fragments.AddFoodDetailsFragment"
+        android:name="com.lux.eventmanagement.fragments.AddEventDetailsFragment"
         android:label="@string/nav_add"
-        tools:layout="@layout/layout_addfood">
+        tools:layout="@layout/layout_addevent">
         <action
             android:id="@+id/nav_contact_uspage_show"
             app:destination="@id/nav_contact_uspage" />

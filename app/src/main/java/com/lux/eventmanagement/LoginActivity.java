@@ -13,14 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.facebook.AccessToken;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -61,8 +54,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private SignInButton btnLoginGoogle;
     private GoogleSignInClient googleSignInClient;
     private GoogleSignInOptions googleSignInOptions;
-    private CallbackManager callbackManager;
-    private LoginButton btnLoginFacebook;
+
     private FirebaseFirestore db;
 
     @Override
@@ -163,7 +155,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Log.w(TAG_GOOGLE, "Google sign in failed", e);
             }
         }
-        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
     private void emailSignIn() {
         final String email = inputEmail.getText().toString();

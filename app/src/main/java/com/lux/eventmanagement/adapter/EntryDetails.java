@@ -12,18 +12,23 @@ public class EntryDetails implements Serializable {
     String  title;
     String  id;
     ProfileUserData user;
+    double longitude ;
+    double latitude ;
 
 
     public EntryDetails() {
 
     }
 
-    public EntryDetails(String id,String description,  String image, String title, ProfileUserData user) {
+    public EntryDetails(String id,String description,  String image, String title,double longitude ,
+            double latitude , ProfileUserData user) {
         this.description = description;
         this.image = image;
         this.title = title;
         this.user = user;
         this.id = id;
+        this. longitude = longitude ;
+        this. latitude = latitude;
     }
 
     public String getDescription() {
@@ -65,5 +70,21 @@ public class EntryDetails implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 }

@@ -42,8 +42,6 @@
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:paddingTop="15dp">
-
-
                 <TextView
                     android:id="@+id/title"
                     android:layout_width="fill_parent"
@@ -55,12 +53,18 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
+                <RelativeLayout
+    android:layout_width="fill_parent"
+                    android:layout_margin="10dp"
+    android:layout_height="match_parent">
+
 
 
                 <TextView
                     android:id="@+id/details"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="80dp"
                     android:minLines="1"
                     android:text="@string/Description_of_Food"
                     android:textStyle="normal"
@@ -68,8 +72,14 @@
 
 
 
+                <Button android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonviewlocaion"
+                    android:layout_below="@+id/details"
+                    android:layout_margin="40dp"
+                    android:text="View Location"></Button>
 
-
+</RelativeLayout>
             </LinearLayout>
 
 

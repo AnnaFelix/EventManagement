@@ -65,7 +65,7 @@
     <string name="description_of_food">Food Description</string>
     <string name="address">Address</string>
     <string name="contact_number">Contact Number</string>
-    <string name="save">Save!</string>
+    <string name="save">Save</string>
     <string name="pickup">Pickup!</string>
     <string name="No_of_plates"># of Plates</string>
     <string name="Food_provider" />
