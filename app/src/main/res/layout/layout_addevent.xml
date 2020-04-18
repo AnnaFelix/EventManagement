@@ -23,11 +23,11 @@
 
     <ImageView
         android:id="@+id/imgViewSelect"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/baseline_publish_black"
+        android:src="@drawable/cam"
         tools:ignore="ContentDescription" />
 
 </RelativeLayout>
