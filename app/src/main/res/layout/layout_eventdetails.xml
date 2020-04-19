@@ -19,6 +19,8 @@
             android:background="@color/light_gray"
             android:orientation="horizontal">
 
+
+
             <ImageView
                 android:id="@+id/RecDImg"
                 android:layout_width="match_parent"
@@ -34,6 +36,15 @@
                 android:layout_alignParentBottom="true"
                 android:src="@drawable/videoicon"
                 tools:ignore="ContentDescription" />
+            <ImageButton
+                android:id="@+id/deletebtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/delete"
+                android:layout_alignParentTop="true"/>
+
         </RelativeLayout>
         <LinearLayout
             android:orientation="vertical"

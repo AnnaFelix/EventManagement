@@ -16,6 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -72,6 +73,7 @@ public class EntryDetailsActivity extends AppCompatActivity  {
     private CommentListAdapter mAdapter;
     FirebaseFirestore db;
     RatingBar ratingBar;
+    ImageButton deletebtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +91,7 @@ public class EntryDetailsActivity extends AppCompatActivity  {
         db = FirebaseFirestore.getInstance();
         title = findViewById(R.id.title);
         video = findViewById(R.id.video);
+        deletebtn = findViewById(R.id.deletebtn);
         buttonviewlocaion = findViewById(R.id.buttonviewlocaion);
         addcomment = findViewById(R.id.addcomment);
         recyclerView = findViewById(R.id.reviewlist);
@@ -122,7 +125,6 @@ public class EntryDetailsActivity extends AppCompatActivity  {
 
             }
         });
-
 
         // Load the image using Glide
         Glide.with(getApplicationContext())
@@ -173,6 +175,35 @@ public class EntryDetailsActivity extends AppCompatActivity  {
                     i.putExtra("video", mEntryDetails.getVideo());
                     startActivity(i);
                 }
+            }
+        });
+
+        if(mEntryDetails.getUser().email.equalsIgnoreCase(Utils.getUserGmail(getApplicationContext()))){
+            deletebtn.setVisibility(View.VISIBLE);
+        }else{
+            deletebtn.setVisibility(View.INVISIBLE);
+        }
+        deletebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db.collection("events").document(mEntryDetails.getId())
+                        .delete()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                               // Log.d("TAG", "DocumentSnapshot successfully deleted!");
+                                Toast.makeText(EntryDetailsActivity.this,  "Done!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                          //      Log.w("TAG", "Error deleting document", e);
+                                Toast.makeText(EntryDetailsActivity.this,  "Error!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
             }
         });
 
