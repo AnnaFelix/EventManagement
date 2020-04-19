@@ -30,7 +30,7 @@ public class SignupActivity extends AppCompatActivity {
 
     private static final String TAG = "Add user to DB - SignUp Activity";
     FirebaseFirestore db;
-    private EditText firstname, lastname, email, password, password2;
+    private EditText firstname,  email, password, password2;
     private Button btnSignUp;
     private FirebaseAuth auth;
     private GoogleSignInOptions gso;
@@ -45,7 +45,6 @@ public class SignupActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         firstname = (EditText) findViewById(R.id.signup_firstname);
-        lastname = (EditText) findViewById(R.id.signup_lastname);
         email = (EditText) findViewById(R.id.signup_email);
         btnSignUp = (Button) findViewById(R.id.signup_btn);
         password = (EditText) findViewById(R.id.signup_password);
@@ -64,7 +63,6 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 final String str_firstname = firstname.getText().toString().trim();
-                String str_lastname = lastname.getText().toString().trim();
                 final String str_email = email.getText().toString().trim();
                 String str_password = password.getText().toString().trim();
                 String str_password2 = password2.getText().toString().trim();
@@ -74,10 +72,7 @@ public class SignupActivity extends AppCompatActivity {
                     return;
                 }
 
-                if (TextUtils.isEmpty(str_lastname)) {
-                    Toast.makeText(getApplicationContext(), "Enter last name!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+
 
                 if (TextUtils.isEmpty(str_email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
@@ -111,6 +106,7 @@ public class SignupActivity extends AppCompatActivity {
                                     ProfileUserData user = new ProfileUserData();
                                     user.setId( auth.getUid().toString());
                                     user.setEmail( str_email);
+                                    user.setName( str_firstname);
                                     Utils.onSaveUSerID(getApplicationContext(),user);
                                     db.collection("users").document(auth.getUid())
                                             .set(user)

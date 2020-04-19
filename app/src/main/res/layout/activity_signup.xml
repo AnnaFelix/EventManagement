@@ -42,13 +42,6 @@
             android:hint="@string/hint_signup_firstname"
             android:inputType="text" />
 
-        <EditText
-            android:id="@+id/signup_lastname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/hint_signup_lastname"
-            android:inputType="text" />
 
         <EditText
             android:id="@+id/signup_email"
