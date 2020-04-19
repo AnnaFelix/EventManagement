@@ -48,7 +48,7 @@
     <string name="facebook_app_id">2764260256938189</string>
     <string name="fb_login_protocol_scheme">fb2764260256938189</string>
 
-    
+
     <!-- Signup layout -->
     <string name="hint_signup_firstname">Enter your name</string>
     <string name="hint_signup_lastname">Enter your last name</string>
