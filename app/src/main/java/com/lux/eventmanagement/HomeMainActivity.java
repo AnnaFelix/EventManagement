@@ -88,7 +88,7 @@ public class HomeMainActivity extends AppCompatActivity implements Utils.OnActio
         if (!(hasPerm == PackageManager.PERMISSION_GRANTED)) {
             ActivityCompat.requestPermissions(HomeMainActivity.this,
                     new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE,
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.LOCATION_HARDWARE},
                     Constants.PERMISSION_CAMERA);
         }
 
