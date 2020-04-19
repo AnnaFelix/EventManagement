@@ -107,7 +107,7 @@ public class ProviderProfile extends Fragment {//get the spinner from the xml.
                 editTextName.setText(mprofileUserData.getName());
                 editTextAboutme.setText(mprofileUserData.getAboutme());
                 editTextPhonenumber.setText(mprofileUserData.getPhonenumber());
-                editTextEmailAddress.setText(mprofileUserData.getAddress());
+                editTextEmailAddress.setText(mprofileUserData.getEmail());
 
             }
         });

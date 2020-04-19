@@ -18,13 +18,12 @@
         android:layout_height="wrap_content"
         android:contentDescription="Name"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@drawable/baseline_person_black" />
 
     <TextView
         android:id="@+id/testname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="TestTest"
         android:textSize="18dp"
         android:textColor="@color/white"

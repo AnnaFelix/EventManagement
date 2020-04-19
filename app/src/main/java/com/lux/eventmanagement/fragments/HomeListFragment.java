@@ -155,6 +155,7 @@ public class HomeListFragment extends Fragment {
                                 Log.e("annnnnnnnnnnnavvvvvv", document.getId() + " => " + document.getData());
 
                                 EntryDetails mEntryDetailsLocal = document.toObject(EntryDetails.class);
+                                mEntryDetailsLocal.setId(document.getId());
                                 mEntryDetails.add(mEntryDetailsLocal);
                             }
 

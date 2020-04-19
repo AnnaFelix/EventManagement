@@ -11,7 +11,8 @@
         android:id="@+id/imageView2"
         android:layout_width="412dp"
         android:layout_height="192dp"
-        android:src="@color/light_gray"
+        android:background="@color/light_gray"
+        android:src="@drawable/usericon"
         />
     <ScrollView
         android:layout_width="match_parent"

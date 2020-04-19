@@ -26,8 +26,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         Intent i = MapsActivity.this.getIntent();
-        latitude = (double) i.getDoubleExtra("latitude",0);
-        longitude = (double) i.getDoubleExtra("longitude",0);
+        latitude = (double) i.getDoubleExtra("latitude",0.0);
+        longitude = (double) i.getDoubleExtra("longitude",0.0);
 
 
     }
@@ -40,6 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng sydney = new LatLng(latitude, longitude);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,
+                10));
     }
 }

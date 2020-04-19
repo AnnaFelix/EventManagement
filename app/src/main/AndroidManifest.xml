@@ -21,6 +21,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
 
 
         <meta-data
@@ -67,6 +68,10 @@
     </activity>
         <activity
             android:name=".MapsActivity"
+            android:label="@string/title_activity_maps">
+        </activity>
+        <activity
+            android:name=".VideoActivity"
             android:label="@string/title_activity_maps">
         </activity>
     </application>

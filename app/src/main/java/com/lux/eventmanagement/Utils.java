@@ -29,6 +29,7 @@ public class Utils {
 
     public static final int TAG_ADD_NEWRECIPE = 18;
     public static final int PICK_IMAGE_CAMERA = 22;
+    public static final int PICK_VIDEO_CAMERA = 33;
     public static final int PICK_IMAGE_GALLERY = 11;
     public static final int PERMISSION_CAMERA = 15;
 

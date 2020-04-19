@@ -18,7 +18,7 @@
         android:id="@+id/imgView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@color/light_gray"
+        android:src="@drawable/img"
         tools:ignore="ContentDescription" />
 
     <ImageView
@@ -29,6 +29,16 @@
         android:layout_alignParentBottom="true"
         android:src="@drawable/cam"
         tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/videoViewSelect"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/cam"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/imgViewSelect"
+        tools:ignore="ContentDescription" />
+
 
 </RelativeLayout>
 
@@ -66,7 +76,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:hint="address"
+                        android:hint="Event Name"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -97,25 +107,38 @@
 
 
                 </LinearLayout>
-
-                <Button
-                    android:id="@+id/locationbtn"
-                    android:layout_width="fill_parent"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:background="@color/colorPrimary"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:layout_margin="50dp"
-                    android:text="Share Location"
-                    android:layout_alignParentBottom="true"
-                    android:textColor="@android:color/white" />
+                    android:layout_marginTop="10dp"
+                    android:weightSum="1"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight=".3"
+                        android:textSize="18dp"
+                        android:layout_height="wrap_content"
+                        android:text="Location :">
+
+                    </TextView>
+                    <EditText
+                        android:id="@+id/locationtxt"
+                        android:layout_width="0dp"
+                        android:layout_weight=".7"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:hint="Location name"
+                        />
+                </LinearLayout>
+
 
 
             </LinearLayout>
 
 
         </LinearLayout>
+
 
 
         <Button
