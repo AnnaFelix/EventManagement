@@ -201,7 +201,7 @@ public class AddEventDetailsFragment extends Fragment   {
                                 "Invalid Location!",
                                 Toast.LENGTH_SHORT).show();  //I have add User Profile data so that we will get whole user details
 
-                        
+
                     } else {
                         Log.e("aa",imageUrlFinal+" "+videourlFinal);
                         EntryDetails details = new EntryDetails(Utils.getUserGmail(getActivity()), des, imageUrlFinal, tle, longitudeVal, latitudeVal, user, null, "0", videourlFinal);
