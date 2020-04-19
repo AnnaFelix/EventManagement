@@ -54,7 +54,7 @@ import java.util.List;
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
-public class EntryDetailsActivity extends AppCompatActivity {
+public class EntryDetailsActivity extends AppCompatActivity  {
 
     TextView title, details, addcomment;
     ImageView RecDImg,video;
@@ -233,9 +233,9 @@ public class EntryDetailsActivity extends AppCompatActivity {
                                 Log.e("annnnnnnnnnnnavvvvvv", document.getId() + " => " + document.getData());
 
                                 UserCommentList mUserCommentList = document.toObject(UserCommentList.class);
-                                //if(mUserCommentList.geteventID().equalsIgnoreCase(mEntryDetails.getId())) {
+                                if(mUserCommentList.getEventID().equalsIgnoreCase(mEntryDetails.getId())) {
                                     mUserCommentListMain.add(mUserCommentList);
-                                //}
+                                }
 
                             }
                             onCreateAdapter(mUserCommentListMain);
@@ -248,9 +248,7 @@ public class EntryDetailsActivity extends AppCompatActivity {
                 });
     }
 
-public  void  playvideo(){
 
-}
 
 
 }

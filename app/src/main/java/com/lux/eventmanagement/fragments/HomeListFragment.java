@@ -23,6 +23,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.gson.Gson;
 import com.lux.eventmanagement.R;
+import com.lux.eventmanagement.Utils;
 import com.lux.eventmanagement.adapter.AllEntryListAdapter;
 import com.lux.eventmanagement.adapter.EntryDetails;
 import com.lux.eventmanagement.adapter.UserLocalDataList;
@@ -72,7 +73,6 @@ public class HomeListFragment extends Fragment {
         Log.e("aaaaaaaaaaaaa", "onCreate " );
         mContext = getActivity();
         db = FirebaseFirestore.getInstance();
-        mEntryDetails = new ArrayList<>();
     }
 
 
@@ -85,7 +85,6 @@ public class HomeListFragment extends Fragment {
         //onSetContent();
         recyclerView = (RecyclerView) view.findViewById(R.id.mainrecipielist);
         Log.e("aaaaaaaaaaaaa", "onCreateView " );
-        getListItems();
 
 
 
@@ -150,9 +149,10 @@ public class HomeListFragment extends Fragment {
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        mEntryDetails = new ArrayList<>();
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.e("annnnnnnnnnnnavvvvvv", document.getId() + " => " + document.getData());
+                                Log.e("nnnnnnnnavvvvvv", document.getId() + " => " + document.getData());
 
                                 EntryDetails mEntryDetailsLocal = document.toObject(EntryDetails.class);
                                 mEntryDetailsLocal.setId(document.getId());
@@ -163,7 +163,7 @@ public class HomeListFragment extends Fragment {
 
                         } else {
                             Log.w("no", "Error getting documents.", task.getException());
-                             getOfflineData(true);
+                             //getOfflineData(true);
 
                         }
                     }
@@ -193,6 +193,14 @@ public class HomeListFragment extends Fragment {
             //Log.e("aaaaaaaaaaaaa", "e " + list);
             onCreateAdapter(mEntryDetails);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.e("aaaaaaaaaaaaa", "e onResume" );
+        getListItems();
+
     }
 
 

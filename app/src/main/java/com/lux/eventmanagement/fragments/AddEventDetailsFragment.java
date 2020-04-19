@@ -61,6 +61,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
@@ -78,8 +79,8 @@ public class AddEventDetailsFragment extends Fragment   {
     private ImageView imageView,imgView; //img
     private ImageView videoViewSelect; //img
     private Uri filePath; //img
-    String imageUrl;
-    String videourl;
+    String imageUrlFinal;
+    String videourlFinal;
 
 
     //Firebase
@@ -104,7 +105,7 @@ public class AddEventDetailsFragment extends Fragment   {
     private String mParam2;
     private EditText E555_S, E5555_C;
 
-    EditText description, title, locationtxt;
+    EditText description, titleMain, locationtxt;
     private Button btnGet, time_buttn, save;
 
     private ArrayList<String> permissionsToRequest;
@@ -144,7 +145,7 @@ public class AddEventDetailsFragment extends Fragment   {
 
 
         description = view.findViewById(R.id.description);
-        title = view.findViewById(R.id.title);
+        titleMain = view.findViewById(R.id.title);
         locationtxt = view.findViewById(R.id.locationtxt);
 
         mprofileUserData = Utils.userDetailsFromPreference(getActivity());
@@ -156,7 +157,7 @@ public class AddEventDetailsFragment extends Fragment   {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!title.getText().toString().isEmpty()) {
+                if(!titleMain.getText().toString().isEmpty()) {
                     selectImage();
                 }else{
                     Toast.makeText(getActivity(),"Mention Name",Toast.LENGTH_LONG).show();
@@ -167,7 +168,7 @@ public class AddEventDetailsFragment extends Fragment   {
         videoViewSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!title.getText().toString().isEmpty()) {
+                if(!titleMain.getText().toString().isEmpty()) {
                     selectVideo();
                 }else{
                     Toast.makeText(getActivity(),"Mention Name",Toast.LENGTH_LONG).show();
@@ -181,30 +182,37 @@ public class AddEventDetailsFragment extends Fragment   {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
+                if (!titleMain.getText().toString().isEmpty()) {
 
-                String des = ""+description.getText().toString();
-                String tle = title.getText().toString();
-                ProfileUserData user = Utils.userDetailsFromPreference(getActivity());
+                    String des = "" + description.getText().toString();
+                    String tle = titleMain.getText().toString();
+                    ProfileUserData user = Utils.userDetailsFromPreference(getActivity());
 
-                LatLng latlong = getLocationFromAddress(locationtxt.getText().toString());
-                if(latlong != null){
-                 longitudeVal = latlong.longitude;
-                 latitudeVal = latlong.latitude;
-                }
-                else{
-                    longitudeVal = 0.0;
-                    latitudeVal = 0.0;
-                }
-                if(latlong == null && !(locationtxt.getText().toString().isEmpty())) {
+                    LatLng latlong = getLocationFromAddress(locationtxt.getText().toString());
+                    if (latlong != null) {
+                        longitudeVal = latlong.longitude;
+                        latitudeVal = latlong.latitude;
+                    } else {
+                        longitudeVal = 0.0;
+                        latitudeVal = 0.0;
+                    }
+                    if (latlong == null && !(locationtxt.getText().toString().isEmpty())) {
+                        Toast.makeText(getActivity(),
+                                "Invalid Location!",
+                                Toast.LENGTH_SHORT).show();  //I have add User Profile data so that we will get whole user details
+
+                    } else {
+                        Log.e("aa",imageUrlFinal+" "+videourlFinal);
+                        EntryDetails details = new EntryDetails(Utils.getUserGmail(getActivity()), des, imageUrlFinal, tle, longitudeVal, latitudeVal, user, null, "0", videourlFinal);
+                        save.setText("Uploading...");
+                        //notifyDataSetChanged();
+                        saveData(details);
+                    }
+                }else {
                     Toast.makeText(getActivity(),
-                            "Invalid Location!",
+                            "Please enter data!",
                             Toast.LENGTH_SHORT).show();  //I have add User Profile data so that we will get whole user details
 
-                }else{
-                    EntryDetails details = new EntryDetails(Utils.getUserGmail(getActivity()), des, imageUrl, tle,longitudeVal, latitudeVal, user, null, "0",videourl);
-                    save.setText("Uploading...");
-                    //notifyDataSetChanged();
-                    saveData(details);
                 }
             }
         });
@@ -249,7 +257,7 @@ public class AddEventDetailsFragment extends Fragment   {
 
 
     private void saveData(EntryDetails details) {
-        if(save.getText().toString().contains("Uploading")) {
+        if(!titleMain.getText().toString().isEmpty()) {
             db.collection("events")
                     .add(details)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -257,8 +265,7 @@ public class AddEventDetailsFragment extends Fragment   {
                         public void onSuccess(DocumentReference documentReference) {
                             Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                             save.setText("Done");
-                            getActivity().getFragmentManager().popBackStack();
-
+                            getActivity().onBackPressed();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -301,7 +308,7 @@ public class AddEventDetailsFragment extends Fragment   {
                 }
 
                 imgPath = destination.getAbsolutePath();
-                // imageview.setImageBitmap(bitmap);
+                imgView.setImageBitmap(bitmap);
                 uploadImage(imgPath);
                 //MyProfileFragment.mImageSelectionCompleteListner.onImageSelectionComplete(bitmap);
             } catch (Exception e) {
@@ -319,7 +326,7 @@ public class AddEventDetailsFragment extends Fragment   {
                 destination = new File(imgPath.toString());
                 Log.e("Activity", "Pick from Gallery::>>> ");
                 // MyProfileFragment.mImageSelectionCompleteListner.onImageSelectionComplete(bitmap);
-                //imageview.setImageBitmap(bitmap);
+                imgView.setImageBitmap(bitmap);
                 uploadImage(imgPath);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -341,10 +348,11 @@ public class AddEventDetailsFragment extends Fragment   {
     }
 
     private void uploadImage(String pathh) {
+        final String name = "image"+titleMain.getText().toString()+new Random().nextInt(100);
 
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
         StorageReference storageRef = firebaseStorage.getReference();
-        StorageReference uploadeRef = storageRef.child(title.getText().toString());
+        StorageReference uploadeRef = storageRef.child(name);
         File file = new File(pathh);
         Uri fileUri = Uri.fromFile(file);
 
@@ -369,17 +377,17 @@ public class AddEventDetailsFragment extends Fragment   {
                 Toast.makeText(getActivity(),
                         "File has been uploaded to cloud storage",
                         Toast.LENGTH_SHORT).show();
-                getImage(title.getText().toString());
+                getImage(name);
 
 
             }
         });
     }
     private void uploadVideo(String pathh) {
-
+        final String name = "video"+titleMain.getText().toString()+new Random().nextInt(100);
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
         StorageReference storageRef = firebaseStorage.getReference();
-        StorageReference uploadeRef = storageRef.child(title.getText().toString());
+        StorageReference uploadeRef = storageRef.child(name);
         File file = new File(pathh);
         Uri fileUri = Uri.fromFile(file);
 
@@ -404,7 +412,7 @@ public class AddEventDetailsFragment extends Fragment   {
                 Toast.makeText(getActivity(),
                         "File has been uploaded to cloud storage",
                         Toast.LENGTH_SHORT).show();
-                getVideo(title.getText().toString());
+                getVideo(name);
 
 
             }
@@ -428,9 +436,9 @@ public class AddEventDetailsFragment extends Fragment   {
             public void onSuccess(Uri uri) {
                 // Got the download URL for 'users/me/profile.png'
                 Log.e("aaa "+name,"uri "+uri);
-                imageUrl = uri.toString();
+                imageUrlFinal = uri.toString();
                 Glide.with(getActivity())
-                        .load(imageUrl)
+                        .load(imageUrlFinal)
                         .asBitmap()
 
                         .into(imgView);
@@ -440,8 +448,11 @@ public class AddEventDetailsFragment extends Fragment   {
             @Override
             public void onFailure(@NonNull Exception exception) {
                 // Handle any errors
+                Log.e("aaimagea "+name,"exception "+exception);
             }
         });
+
+
 
     }
     private void getVideo(final String name){
@@ -461,14 +472,15 @@ public class AddEventDetailsFragment extends Fragment   {
             @Override
             public void onSuccess(Uri uri) {
                 // Got the download URL for 'users/me/profile.png'
-                Log.e("aaa "+name,"uri "+uri);
-                videourl = uri.toString();
+                Log.e("aaa video "+name,"uri "+uri);
+                videourlFinal = uri.toString();
 
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
                 // Handle any errors
+                Log.e("aavideoea "+name,"exception "+exception);
             }
         });
 
