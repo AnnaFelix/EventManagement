@@ -58,7 +58,7 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 public class EntryDetailsActivity extends AppCompatActivity  {
 
     TextView title, details, addcomment;
-    ImageView RecDImg,video;
+    ImageView RecDImg;
     private GoogleMap  mMap;
     Button buttonviewlocaion;
     private ArrayList<String> permissionsToRequest;
@@ -73,7 +73,7 @@ public class EntryDetailsActivity extends AppCompatActivity  {
     private CommentListAdapter mAdapter;
     FirebaseFirestore db;
     RatingBar ratingBar;
-    Button deletebtn;
+    Button deletebtn,video;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

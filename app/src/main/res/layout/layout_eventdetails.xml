@@ -28,12 +28,14 @@
                 android:scaleType="centerCrop"
                 />
 
-            <ImageView
+            <Button
                 android:id="@+id/video"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
+                android:text="Check for video"
+                android:layout_margin="10dp"
                 android:src="@drawable/videoicon"
                 tools:ignore="ContentDescription" />
             <Button
