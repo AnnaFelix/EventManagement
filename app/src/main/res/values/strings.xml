@@ -50,7 +50,7 @@
 
 
     <!-- Signup layout -->
-    <string name="hint_signup_firstname">Enter your first name</string>
+    <string name="hint_signup_firstname">Enter your name</string>
     <string name="hint_signup_lastname">Enter your last name</string>
     <string name="hint_signup_email">Enter your email address</string>
     <string name="hint_signup_password">Enter your password</string>
