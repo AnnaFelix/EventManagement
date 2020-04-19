@@ -73,7 +73,7 @@ public class EntryDetailsActivity extends AppCompatActivity  {
     private CommentListAdapter mAdapter;
     FirebaseFirestore db;
     RatingBar ratingBar;
-    ImageButton deletebtn;
+    Button deletebtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
