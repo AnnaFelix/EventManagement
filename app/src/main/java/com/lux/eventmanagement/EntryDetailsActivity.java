@@ -203,7 +203,6 @@ public class EntryDetailsActivity extends AppCompatActivity  {
                                 Toast.makeText(EntryDetailsActivity.this,  "Error!", Toast.LENGTH_SHORT).show();
                             }
                         });
-
             }
         });
 
