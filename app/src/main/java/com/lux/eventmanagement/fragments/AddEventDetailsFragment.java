@@ -75,7 +75,7 @@ public class AddEventDetailsFragment extends Fragment   {
 
 
     private final int PICK_IMAGE_REQUEST = 10; //71 img
-    private ImageView imageView; //img
+    private ImageView imageView,imgView; //img
     private ImageView videoViewSelect; //img
     private Uri filePath; //img
     String imageUrl;
@@ -151,6 +151,7 @@ public class AddEventDetailsFragment extends Fragment   {
         //Initialize Views
 
         imageView = (ImageView) view.findViewById(R.id.imgViewSelect);
+        imgView = (ImageView) view.findViewById(R.id.imgView);
         videoViewSelect = (ImageView) view.findViewById(R.id.videoViewSelect);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -432,7 +433,7 @@ public class AddEventDetailsFragment extends Fragment   {
                         .load(imageUrl)
                         .asBitmap()
 
-                        .into(imageView);
+                        .into(imgView);
 
             }
         }).addOnFailureListener(new OnFailureListener() {

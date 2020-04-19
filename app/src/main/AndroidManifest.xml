@@ -72,7 +72,7 @@
         </activity>
         <activity
             android:name=".VideoActivity"
-            android:label="@string/title_activity_maps">
+            android:label="Video View">
         </activity>
     </application>
 

@@ -11,17 +11,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class VideoActivity extends AppCompatActivity {
     VideoView video;
-    String video_url = "http://file2.video9.in/english/movie/2014/x-men-_days_of_future_past/X-Men-%20Days%20of%20Future%20Past%20Trailer%20-%20[Webmusic.IN].3gp";
+    String video_url ;
     ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac);
+        setContentView(R.layout.activity_video);
 
         video = (VideoView)findViewById(R.id.video);
         Intent i = VideoActivity.this.getIntent();
-        //video_url = i.getStringExtra("video");
+        video_url = i.getStringExtra("video");
         pd = new ProgressDialog(VideoActivity.this);
         pd.setMessage("Buffering video please wait...");
         pd.show();
